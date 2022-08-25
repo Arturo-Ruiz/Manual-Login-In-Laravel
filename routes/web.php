@@ -25,10 +25,10 @@ Route::post('login', function(){
 
     if(Auth::attempt($credentials)){
         request()->session()->regenerate();
-        
-        return 'Your are Login';
+
+        return redirect('dashboard');
     }else{
-        return "Login Failed";
+        return redirect('login');
     }
 }); 
 
