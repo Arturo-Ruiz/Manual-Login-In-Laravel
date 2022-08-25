@@ -23,6 +23,10 @@
         <label for="password">
             <input name="password" type="password" id="password" placeholder="Password">
         </label>
+        <label for="remember">
+            Remember me
+            <input name="remember" type="checkbox" id="remember">
+        </label>
         <button type="submit">Login</button>
     </form>
 
