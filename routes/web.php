@@ -18,7 +18,7 @@ Route::view('/', 'welcome');
 
 Route::view('/login', 'login');
 
-Route::view('/dashboard', 'dashboard');
+Route::view('/dashboard', 'dashboard')->middleware('auth');
 
 Route::post('login', function(){
     $credentials = request()->only('email', 'password');
