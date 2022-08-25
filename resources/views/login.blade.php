@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel App</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    </head>
-    <body>
-        @include('partials.nav')
-        <h1>Login</h1>
-    </body>
+    <title>Laravel App</title>
+
+</head>
+
+<body>
+
+    @include('partials.nav')
+
+    <h1>Login</h1>
+
+    <form method="POST">
+        <label for="email">
+            <input name="email" type="email" id="email" placeholder="Email">
+        </label>
+        <label for="password">
+            <input name="password" type="password" id="password" placeholder="Password">
+        </label>
+        <button type="submit">Login</button>
+    </form>
+
+</body>
+
 </html>
