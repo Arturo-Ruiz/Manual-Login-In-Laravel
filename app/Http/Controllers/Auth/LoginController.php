@@ -11,7 +11,8 @@ use App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
-    public function login(LoginRequest $request, Redirector $redirect){
+    public function login(LoginRequest $request)
+    {
 
         $remember = $request->filled('remember');
 
@@ -19,13 +20,26 @@ class LoginController extends Controller
 
             $request->session()->regenerate();
 
-            return $redirect
+            return redirect()
                 ->intended('dashboard')
                 ->with('status', 'You are logged in');
         } else {
-            return $redirect
+            return redirect()
                 ->route('login')
                 ->with('error', __('auth.failed'));
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()
+            ->route('login')
+            ->with('status', 'You are logout successful');
     }
 }
