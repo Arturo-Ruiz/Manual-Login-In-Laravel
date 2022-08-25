@@ -16,6 +16,7 @@
     <h1>Login</h1>
 
     <form method="POST">
+        @csrf
         <label for="email">
             <input name="email" type="email" id="email" placeholder="Email">
         </label>
