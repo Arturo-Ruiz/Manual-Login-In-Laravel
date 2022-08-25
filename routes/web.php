@@ -24,6 +24,8 @@ Route::post('login', function(){
     $credentials = request()->only('email', 'password');
 
     if(Auth::attempt($credentials)){
+        request()->session()->regenerate();
+        
         return 'Your are Login';
     }else{
         return "Login Failed";
